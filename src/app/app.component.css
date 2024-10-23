@@ -1,0 +1,41 @@
+/* Contenedor principal */
+.product-management-container {
+  text-align: center;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+h1 {
+  color: #4CAF50;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Grupo de botones */
+.button-group {
+  margin-bottom: 20px;
+}
+
+/* Estilos de los botones */
+.action-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #45a049;
+}
+
+.action-btn:focus {
+  outline: none;
+  border: 2px solid #2e7d32;
+}

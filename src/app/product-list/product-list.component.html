@@ -1,0 +1,44 @@
+<div class="table-container">
+  <h2>Lista de Productos</h2>
+  <table class="contact-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.nombre }}</td>
+        <td>{{ product.precio }}</td>
+        <td>
+          <button class="edit-btn" (click)="editProduct(product)">Editar</button>
+        </td>
+        <td>
+          <button class="delete-btn" (click)="deleteProduct(product.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Formulario para editar el contacto -->
+<div *ngIf="selectedProduct" class="edit-form-container">
+  <h3>Editar Producto</h3>
+  <form class="edit-form" (ngSubmit)="updateProduct()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="selectedProduct.nombre" name="nombre">
+    
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" [(ngModel)]="selectedProduct.precio" name="precio">
+
+    <div class="form-buttons">
+      <button type="submit" class="save-btn">Guardar</button>
+      <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancelar</button>
+    </div>
+  </form>
+</div>

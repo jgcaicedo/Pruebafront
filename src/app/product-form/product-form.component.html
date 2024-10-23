@@ -1,0 +1,22 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre" class="form-control" />
+    <!-- Mostrar error si el campo está vacío y fue tocado -->
+    <div *ngIf="productForm.get('nombre')?.invalid && productForm.get('nombre')?.touched" class="error-message">
+      <small *ngIf="productForm.get('nombre')?.errors?.['required']">El nombre es requerido</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="precio">Precio</label>
+    <input id="precio" formControlName="precio" type="number" class="form-control" />
+    <!-- Mostrar error si el precio es inválido -->
+    <div *ngIf="productForm.get('precio')?.invalid && productForm.get('precio')?.touched" class="error-message">
+      <small *ngIf="productForm.get('precio')?.errors?.['required']">El precio es requerido</small>
+      <small *ngIf="productForm.get('precio')?.errors?.['min']">El precio debe ser mayor o igual a 0</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="productForm.invalid" class="submit-btn">Guardar</button>
+</form>
